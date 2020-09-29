@@ -1,0 +1,18 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: service-scale-up-job
+  namespace: kube-power-schedule
+spec:
+  schedule: "0 06 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: service-scheduled-job
+              image: swirfneblin/kubepowerschedule:latest
+              env:
+                - name: REPLICAS
+                  value: "1"
