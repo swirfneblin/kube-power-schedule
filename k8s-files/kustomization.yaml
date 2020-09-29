@@ -1,0 +1,4 @@
+resources:
+  - cronjob-scale-up.yaml
+  - cronjob-scale-down.yaml
+  - namespace.yaml
